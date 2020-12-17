@@ -1,2 +1,2 @@
 # LabAssignments
-Use make to create binaries.
+Use make to create binaries in unix environment.
