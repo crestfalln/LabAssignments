@@ -1,8 +1,3 @@
-
-
-
-
-
 /*
 4.	Two numbers are input through the keyboard into two variables A and B.  Write a C  program to interchange the contents of A and B.
 */
