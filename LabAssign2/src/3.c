@@ -11,5 +11,8 @@ int main()
     float sellPrice = 0;
     float totalProfit = 0;
     printf("Enter Selling Price: ");
-    scanf("")
+    scanf("%f" , &sellPrice);
+    printf("Enter total profit: ");
+    scanf("%f" , &totalProfit);
+    printf("Selling price of one item is: %0.2f" , (sellPrice - totalProfit)/15);
 }
