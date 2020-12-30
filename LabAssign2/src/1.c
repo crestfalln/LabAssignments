@@ -11,8 +11,9 @@ int main()
 {
     int inNum = 0;
     int revNum = 0;
+    int cpNum; 
     scanf("%d" , &inNum);
-    int cpNum = inNum;                                      //Copy the input to modify Input is never modified                         
+    cpNum = inNum;                                      //Copy the input to modify Input is never modified                         
     while(cpNum != 0)                                       //Main loop to reverse the input
     {
         revNum = revNum*10 + cpNum%10;

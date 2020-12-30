@@ -21,5 +21,6 @@ int main()
     scanf("%f" , &breadth);
     printf("Enter radius: ");
     scanf("%f" , &radius);
-    printf("Area of Rectangle: %0.2f\nPerimeter of Rectangle: %0.2f\nArea of Circle: %0.2f\nCircumference of Circle: %0.2f\n" , length*breadth , length+breadth , pi*radius*radius , 2*pi*radius);
+    printf("Area of Rectangle: %0.2f\nPerimeter of Rectangle: %0.2f\nArea of Circle: %0.2f\nCircumference of Circle: %0.2f\n" 
+                                            , length*breadth , length+breadth , pi*radius*radius , 2*pi*radius);
 }
