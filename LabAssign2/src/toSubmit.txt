@@ -1,6 +1,6 @@
+﻿
 
-
-
+Clone with Git?
 
 /*
 1. If a four digit number is input through keyboard, Write a C program to reverse the number and obtain the sum of first and last digit of this number
