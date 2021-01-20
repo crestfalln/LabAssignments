@@ -1,3 +1,6 @@
+﻿Pull with Git
+
+
 /*
 1.	Write a C Program for Simple Calculator using switch case statements
 */
@@ -48,9 +51,6 @@ int main()
 */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#define SPACE ' '
 int main()
 {
    const int maxStage = 5;
