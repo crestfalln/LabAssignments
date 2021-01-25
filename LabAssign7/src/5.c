@@ -7,7 +7,7 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
-#define INTMAX (int)__INT_MAX__
+#define INTMAX  10 
 int factorial(int n)
 {
     int result = 1;
@@ -27,7 +27,7 @@ int sumFacdigs(int n)
 }
 int main()
 {
-    char *buffer = (char *)malloc(INTMAX);
+    char *buffer = (char *)malloc(INTMAX+2);
     int input;
     fgets(buffer, INTMAX, stdin);
     input = strtol(buffer, (char **)NULL, 10);
