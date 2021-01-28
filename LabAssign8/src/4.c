@@ -6,26 +6,23 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main()
 {
-    unsigned int divisor, quotient;
+    unsigned int divisor;
     unsigned int input;
     unsigned int sum = 1;
     char buff[9];
     fgets(buff, 9, stdin);
     input = strtol(buff, (char **)NULL, 10);
-    quotient = input;
-    for (divisor = 2; divisor < quotient; divisor++)
+    for (divisor = 2; divisor <= (int)sqrt(input); divisor++)
     {
-        if (quotient % divisor == 0)
+        if (input % divisor == 0)
         {
             sum += divisor;
-            quotient /= divisor;
-            sum += quotient;
+            sum += input/divisor;
         }
-        else
-            quotient /= divisor;
     }
     if (sum == input)
         printf("Perfect Number\n");

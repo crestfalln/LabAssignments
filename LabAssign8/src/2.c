@@ -19,8 +19,8 @@ int main()
     for(i = 1 ; i <= row; i++)
     {
         for(k = 0 ; k < i; k++) 
-            putc('*' , stdin);
-        fflush(stdin);
-        putc('\n' , stdin);
+            putc('*' , stdout);
+        putc('\n' , stdout);
+        fflush(stdout);
     }
 }
