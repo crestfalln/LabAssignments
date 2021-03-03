@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&lsqb;Pull with Git&quest;&rsqb;&lpar;https&colon;&sol;&sol;github&period;com&sol;crestfalln&sol;LabAssignments&period;git&rpar;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="pull-with-git"><a href="https://github.com/crestfalln/LabAssignments.git">Pull with Git?</a></h1>
+<h4 id="1--write-a-c-program-to-add-two-complex-numbers-by-passing-structure-to-a-function">1.  Write a C program to add two complex numbers by passing structure to a function.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>
+{</span>
+    <span class="hljs-keyword">float</span> real;
+    <span class="hljs-keyword">float</span> img;
+} <span class="hljs-built_in">complex</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">complex_sum</span><span class="hljs-params">(<span class="hljs-built_in">complex</span> *num1, <span class="hljs-built_in">complex</span> *num2)</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Sum = %0.3f + (%0.3fi)&quot;</span>, num1-&gt;real + num2-&gt;real, num1-&gt;img + num2-&gt;img);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">complex</span> num1, num2;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;For 1st complex number:\nEnter the real and imaginary parts: &quot;</span>);
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%f %f&quot;</span>, &amp;num1.real, &amp;num1.img);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;For 2st complex number:\nEnter the real and imaginary parts: &quot;</span>);
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%f %f&quot;</span>, &amp;num2.real, &amp;num2.img);
+    complex_sum(&amp;num1 , &amp;num2);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<blockquote>
+<p><strong>Input:</strong><br>
+2 1<br>
+3 1<br>
+<strong>Output:</strong><br>
+5 + (2)i</p>
+</blockquote>
+<h4 id="2-write-a-c-program-to-store-information-of-two-students-student_name-roll_no-marks-using-array-of-structures">2. Write a C program to store information of two students (student_name, roll_no, marks) using array of structures.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>
+{</span>
+    <span class="hljs-keyword">char</span> name[<span class="hljs-number">50</span>];
+    <span class="hljs-keyword">int</span> marks;
+    <span class="hljs-keyword">char</span> roll[<span class="hljs-number">50</span>];
+} student;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> iter = <span class="hljs-number">0</span>;
+    student students[<span class="hljs-number">2</span>];
+    <span class="hljs-keyword">for</span> (iter = <span class="hljs-number">0</span>; iter &lt; <span class="hljs-number">2</span>; iter++)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter Student no. %d details:\n&quot;</span> , iter+<span class="hljs-number">1</span>);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Name: &quot;</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot; %s&quot;</span>, (students + iter)-&gt;name);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Roll No: &quot;</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot; %s&quot;</span>, (students + iter)-&gt;roll);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Marks: &quot;</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;(students + iter)-&gt;marks);
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n\nOutput:\n&quot;</span>);
+    <span class="hljs-keyword">for</span> (iter = <span class="hljs-number">0</span>; iter &lt; <span class="hljs-number">2</span>; iter++)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Student no. %d details:\n&quot;</span> , iter+<span class="hljs-number">1</span>);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Name: %s\n&quot;</span> , (students+iter)-&gt;name);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Roll No: %s\n&quot;</span> , (students+iter)-&gt;roll);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Marks: %d\n&quot;</span> , (students+iter)-&gt;marks);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+
+}
+</div></code></pre>
+<blockquote>
+<p><strong>Input:</strong><br>
+Enter Student no. 1 details:<br>
+Name: Sham<br>
+Roll No: 1<br>
+Marks: 95<br>
+Enter Student no. 2 details:<br>
+Name: Ram<br>
+Roll No: 2<br>
+Marks: 90<br>
+<strong>Output:</strong><br>
+Output:<br>
+Name: Ram<br>
+Roll No: 1<br>
+Marks: 95<br>
+Name: Sham<br>
+Roll No: 2<br>
+Marks: 90</p>
+</blockquote>
+<h4 id="3-write-a-function-in-c-to-count-the-number-of-vowels-consonants-digits-and-white-spaces-in-a-string-entered-by-the-user">3. Write a function in C to count the number of Vowels, Consonants, digits and white-spaces in a string entered by the user</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">char</span> c , <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> target[])</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; target[i] != <span class="hljs-string">&#x27;\0&#x27;</span>; i++)
+    {
+        <span class="hljs-keyword">if</span>(c == target[i])
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">stringCount</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* str)</span>
+</span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> vowels[] = <span class="hljs-string">&quot;aeiouAEIOU&quot;</span>;
+    <span class="hljs-keyword">int</span> iter = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> cVowels = <span class="hljs-number">0</span> , cDigits = <span class="hljs-number">0</span> , cConsonants = <span class="hljs-number">0</span> , cWhiteSpaces = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(iter = <span class="hljs-number">0</span>; str[iter] != <span class="hljs-string">&#x27;\0&#x27;</span>; iter++)
+    {
+        <span class="hljs-keyword">if</span>(find(str[iter] , vowels))
+            cVowels++;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>((str[iter] &gt;= <span class="hljs-string">&#x27;a&#x27;</span> &amp;&amp; str[iter] &lt;= <span class="hljs-string">&#x27;z&#x27;</span>) || (str[iter] &gt;= <span class="hljs-string">&#x27;A&#x27;</span> &amp;&amp; str[iter] &lt;= <span class="hljs-string">&#x27;Z&#x27;</span>))
+            cConsonants++;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(str[iter] &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; str[iter] &lt;= <span class="hljs-string">&#x27;9&#x27;</span>)
+            cDigits++;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(str[iter] == <span class="hljs-string">&#x27; &#x27;</span>)
+            cWhiteSpaces++;
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Vowels : %d,\nConsonants : %d,\nDigits : %d,\nWhitespaces : %d\n&quot;</span> , cVowels , cConsonants , cDigits , cWhiteSpaces);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">char</span> str[<span class="hljs-number">100</span>];
+    fgets(str , <span class="hljs-number">98</span> , <span class="hljs-built_in">stdin</span>);
+    stringCount(str); 
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<blockquote>
+<p><strong>Input:</strong><br>
+Enter String: Hello, World<br>
+<strong>Output:</strong><br>
+Vowels : 3,<br>
+Consonants : 7,<br>
+Digits : 0,<br>
+Whitespaces : 1</p>
+</blockquote>
+<h4 id="4-write-a-function-in-c-to-find-the-frequency-of-a-character-in-a-string">4. Write a function in C to find the frequency of a character in a String.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">str_chr_freq</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* str , <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> chr)</span>
+</span>{
+    <span class="hljs-keyword">int</span> iter = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(iter = <span class="hljs-number">0</span> ; str[iter] != <span class="hljs-string">&#x27;\0&#x27;</span>; iter++)
+    {
+        <span class="hljs-keyword">if</span>(str[iter] == chr)
+            count++;
+    }
+    <span class="hljs-keyword">return</span> count;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">stdin_flush</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> <span class="hljs-comment">//Never Used Remove this!!?</span>
+</span>{
+    <span class="hljs-keyword">while</span>(getc(<span class="hljs-built_in">stdin</span>) != <span class="hljs-string">&#x27;\n&#x27;</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> strInSize = <span class="hljs-number">50</span>;
+    <span class="hljs-keyword">char</span> strIn[strInSize];
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter the string: &quot;</span>);
+    fgets(strIn , strInSize - <span class="hljs-number">2</span> , <span class="hljs-built_in">stdin</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter the character: &quot;</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;The number of repitions is: %d&quot;</span> , str_chr_freq(strIn , getchar()));
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<blockquote>
+<p><strong>Input:</strong><br>
+Enter the string: Hello, World<br>
+<strong>Output:</strong><br>
+Enter the character: l<br>
+The number of repitions is: 3</p>
+</blockquote>
+<h4 id="5-write-a-c-program-to-find-factorial-of-a-number-using-recursion">5. Write a C program to find factorial of a Number Using Recursion.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-title">factorial</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>
+</span>{
+    <span class="hljs-keyword">if</span>(n == <span class="hljs-number">1</span> || n == <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> n * factorial(n - <span class="hljs-number">1</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> inputbuffSize = <span class="hljs-number">100</span>;
+    <span class="hljs-keyword">char</span> inputbuff[inputbuffSize];
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter number to find factorial: &quot;</span>);
+    fgets(inputbuff , inputbuffSize - <span class="hljs-number">2</span> , <span class="hljs-built_in">stdin</span>);
+    <span class="hljs-keyword">int</span> input = strtol(inputbuff, (<span class="hljs-keyword">char</span>**)<span class="hljs-literal">NULL</span> , <span class="hljs-number">10</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Factorial is: %ld\n&quot;</span> , factorial(input)); 
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<blockquote>
+<p><strong>Input:</strong><br>
+Enter number to find factorial: 6<br>
+<strong>Output:</strong><br>
+Factorial is: 720</p>
+</blockquote>
+
+    </body>
+    </html>

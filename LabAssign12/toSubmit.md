@@ -26,11 +26,11 @@ int main()
     return 0;
 }
 ```
->**Input:** 
->2 1
->3 1
->**Output:**
->5 + (2)i
+>**Input:**    
+>2 1    
+>3 1    
+>**Output:**    
+>5 + (2)i  
 
 #### 2. Write a C program to store information of two students (student_name, roll_no, marks) using array of structures. 
 ```c
@@ -69,24 +69,24 @@ int main()
 
 }
 ```
->**Input:** 
-Enter Student no. 1 details:
-Name: Sham
-Roll No: 1
-Marks: 95
-Enter Student no. 2 details:
-Name: Ram
-Roll No: 2
-Marks: 90
->**Output:**
-Output:
-Name: Ram
-Roll No: 1
-Marks: 95
-Name: Sham
-Roll No: 2
-Marks: 90
->
+>**Input:**   
+>Enter Student no. 1 details:  
+>Name: Sham  
+>Roll No: 1  
+>Marks: 95  
+>Enter Student no. 2 details:  
+>Name: Ram  
+>Roll No: 2  
+>Marks: 90  
+>**Output:**  
+>Output:  
+>Name: Ram  
+>Roll No: 1  
+>Marks: 95  
+>Name: Sham  
+>Roll No: 2  
+>Marks: 90  
+>  
 
 #### 3. Write a function in C to count the number of Vowels, Consonants, digits and white-spaces in a string entered by the user 
 ```c
@@ -131,13 +131,13 @@ int main()
     return 0;
 }
 ```
->**Input:** 
-Enter String: Hello, World
->**Output:**
-Vowels : 3,
-Consonants : 7,
-Digits : 0,
-Whitespaces : 1
+>**Input:**   
+>Enter String: Hello, World  
+>**Output:**  
+>Vowels : 3,  
+>Consonants : 7,  
+>Digits : 0,  
+>Whitespaces : 1  
 >
 #### 4. Write a function in C to find the frequency of a character in a String.
 ```c
@@ -170,11 +170,11 @@ int main()
     return 0;
 }
 ```
->**Input:**
-Enter the string: Hello, World
->**Output:**
-Enter the character: l
-The number of repitions is: 3
+>**Input:**  
+>Enter the string: Hello, World  
+>**Output:**  
+>Enter the character: l  
+>The number of repitions is: 3  
 >
 
 #### 5. Write a C program to find factorial of a Number Using Recursion.
@@ -200,8 +200,8 @@ int main()
     return 0;
 }
 ```
->**Input:**
-Enter number to find factorial: 6
->**Output:**
-Factorial is: 720
+>**Input:**  
+>Enter number to find factorial: 6  
+>**Output:**  
+>Factorial is: 720  
 >
