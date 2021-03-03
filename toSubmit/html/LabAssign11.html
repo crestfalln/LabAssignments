@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>1&period; Write a C Program to convert lowercase string to uppercase using user defined function&period;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <hr>
+<h2 id="title-lab-assignment-11author-himanshu-guptapagestyle-emptygeometry-margin1cm">title: Lab Assignment 11
+author: Himanshu Gupta
+pagestyle: empty
+geometry: margin=1cm</h2>
+<h4 id="1-write-a-c-program-to-convert-lowercase-string-to-uppercase-using-user-defined-function">1. Write a C Program to convert lowercase string to uppercase using user defined function.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">to_upper</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * str)</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span> ; str[i] != <span class="hljs-string">&#x27;\0&#x27;</span>; i++)
+    {
+        <span class="hljs-keyword">if</span>(str[i] &gt;= <span class="hljs-string">&#x27;a&#x27;</span> &amp;&amp; str[i] &lt;= <span class="hljs-string">&#x27;z&#x27;</span>)
+            str[i] += <span class="hljs-string">&#x27;A&#x27;</span> - <span class="hljs-string">&#x27;a&#x27;</span>;
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">char</span> str[] = <span class="hljs-string">&quot;hello world&quot;</span>;
+    to_upper(str);
+    <span class="hljs-built_in">printf</span>(str);
+}
+</div></code></pre>
+<h4 id="2-write-a-c-program-to-convert-binary-number-to-decimal-using-user-defined-function">2. Write a C Program to Convert Binary Number to Decimal using user defined function.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">binTodec</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* bin)</span>
+</span>{
+    <span class="hljs-keyword">int</span> i , j;
+    <span class="hljs-keyword">int</span> result = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(j = <span class="hljs-number">0</span> ; bin[j] != <span class="hljs-string">&#x27;\n&#x27;</span>; ++j);
+    j--;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt;= j; i++)
+    {
+        result += (bin[i] - <span class="hljs-string">&#x27;0&#x27;</span>) &lt;&lt; (j - i) ;
+    }
+    <span class="hljs-keyword">return</span> result;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">char</span> input[<span class="hljs-number">10</span>];
+    fgets(input , <span class="hljs-number">10</span> , <span class="hljs-built_in">stdin</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span> , binTodec(input));
+}
+</div></code></pre>
+<h4 id="3-write-a-c-program-to-convert-a-decimal-to-binary-number-using-user-defined-function">3. Write a C program to Convert a Decimal to Binary Number using User Defined function.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">decToBin</span><span class="hljs-params">(<span class="hljs-keyword">int</span> dec)</span>
+</span>{
+    <span class="hljs-keyword">char</span> bin[<span class="hljs-number">33</span>];
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">32</span>; i++)
+        bin[i] = <span class="hljs-string">&#x27;0&#x27;</span>;
+    bin[<span class="hljs-number">32</span>] = <span class="hljs-string">&#x27;\0&#x27;</span>;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span> ; dec != <span class="hljs-number">0</span> ; i++)
+    {
+        bin[<span class="hljs-number">31</span> - i] = (dec % <span class="hljs-number">2</span> ) + <span class="hljs-string">&#x27;0&#x27;</span>;
+        dec /= <span class="hljs-number">2</span>;
+    }
+    <span class="hljs-built_in">printf</span>(bin);
+
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> dec;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , &amp;dec); 
+    decToBin(dec);
+}
+</div></code></pre>
+<h4 id="4-write-a-c-function-that-accepts-a-matrix-and-print-transpose-of-that-matrix">4. Write a C function that accepts a matrix and print transpose of that matrix.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">input</span><span class="hljs-params">(<span class="hljs-keyword">int</span> * mat , <span class="hljs-keyword">int</span> x ,<span class="hljs-keyword">int</span> y)</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; x*y; i++)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter Element %d:%d : &quot;</span> , i / x + <span class="hljs-number">1</span> , i%x + <span class="hljs-number">1</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , mat + i);
+    }
+    
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">transpose</span><span class="hljs-params">(<span class="hljs-keyword">int</span> * mat , <span class="hljs-keyword">int</span> x ,<span class="hljs-keyword">int</span> y)</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Transpose is: \n&quot;</span>);
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; x; i++)
+    {
+        <span class="hljs-keyword">for</span>(j = <span class="hljs-number">0</span>; j &lt; y; j++) 
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\t&quot;</span> , mat[i + x*j]);
+        <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;\n&#x27;</span>); 
+    }
+
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> matrix_x = <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> matrix_y = <span class="hljs-number">3</span>;
+    <span class="hljs-keyword">int</span> matrix[matrix_x*matrix_y];
+    input(matrix , matrix_x , matrix_y);
+    transpose(matrix , matrix_x , matrix_y);
+}
+</div></code></pre>
+<h4 id="5-write-a-c-program-to-check-if-a-given-matrix-is-an-identity-matrix-using-user-defined-function">5. Write a C Program to check if a given matrix is an Identity matrix using user defined function.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">input</span><span class="hljs-params">(<span class="hljs-keyword">int</span> * mat , <span class="hljs-keyword">int</span> x ,<span class="hljs-keyword">int</span> y)</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; x*y; i++)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter Element %d:%d : &quot;</span> , i / x + <span class="hljs-number">1</span> , i%x + <span class="hljs-number">1</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , mat + i);
+    }
+    
+}
+
+<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *mat, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span>
+</span>{
+    <span class="hljs-keyword">int</span> i, j;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; y; i++)
+    {
+        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; x; j++)
+        {
+            <span class="hljs-keyword">if</span> (i == j)
+            {
+                <span class="hljs-keyword">if</span> (mat[i * y + j] != <span class="hljs-number">1</span>)
+                    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mat[i * y + j] != <span class="hljs-number">0</span>)
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">continue</span>;
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> matrix_x = <span class="hljs-number">3</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> matrix_y = <span class="hljs-number">3</span>;
+    <span class="hljs-keyword">int</span> matrix[matrix_x*matrix_y];
+    input(matrix , matrix_x , matrix_y);
+    <span class="hljs-keyword">if</span>(check(matrix , matrix_x , matrix_y))
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\nIdentity Matrix found.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\nNot an Identity matrix&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+
+    </body>
+    </html>

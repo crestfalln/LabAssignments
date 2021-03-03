@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>1&period;&Tab;Write a C Program to Check whether the number you input is Palindrome or Not&period;</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <hr>
+<h2 id="title-lab-assignment-3author-himanshu-guptapagestyle-emptygeometry-margin1cm">title: Lab Assignment 3
+author: Himanshu Gupta
+pagestyle: empty
+geometry: margin=1cm</h2>
+<h4 id="1write-a-c-program-to-check-whether-the-number-you-input-is-palindrome-or-not">1.	Write a C Program to Check whether the number you input is Palindrome or Not.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> num;
+    <span class="hljs-keyword">int</span> cpynum = num;
+    <span class="hljs-keyword">int</span> revnum = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , &amp;num);
+    cpynum = num;
+    <span class="hljs-keyword">while</span>(num != <span class="hljs-number">0</span>)
+    {
+        revnum = revnum*<span class="hljs-number">10</span> + num%<span class="hljs-number">10</span>;    
+        num/=<span class="hljs-number">10</span>;
+    }
+    <span class="hljs-keyword">if</span>(revnum == cpynum)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\nIs Palindrone&quot;</span>);
+    }
+    <span class="hljs-keyword">else</span>
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\nNot Palindrone&quot;</span>);
+    }
+    
+}
+</div></code></pre>
+<h4 id="-bin1o"><code>$ bin/1.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>121</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>Is Palindrone</p>
+</blockquote>
+</blockquote>
+<h4 id="2write-a-c-program-to-check-whether-a-number-is-prime-or-not">2.	Write a C Program to Check Whether a Number is Prime or Not.</h4>
+<p>#include &lt;stdio.h&gt;
+int main()
+{
+int input;
+int truth;
+scanf(&quot;%d&quot; , &amp;input);
+for(int i = 2 ; i &lt; input; i++)
+{
+if(input%i == 0)
+{
+printf(&quot;Not Prime&quot;);
+truth = 0;
+break;
+}
+truth = 1;
+}
+if(truth)
+{
+printf(&quot;Is Prime&quot;);
+}
+}</p>
+<h4 id="-bin2o"><code>$ bin/2.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>23</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>Is Prime</p>
+</blockquote>
+</blockquote>
+<h4 id="3write-a-c-program-to-check-whether-a-three-digit-number-is-an-armstrong-number-or-not">3.	Write a C program to check whether a three digit number is an Armstrong number or not.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> input;
+    <span class="hljs-keyword">int</span> tmp;
+    <span class="hljs-keyword">int</span> cpyinput;
+    <span class="hljs-keyword">int</span> arm = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , &amp;input);
+    cpyinput = input;
+    <span class="hljs-keyword">while</span>(input != <span class="hljs-number">0</span>)
+    {
+        tmp = (input%<span class="hljs-number">10</span>); tmp = tmp*tmp*tmp;
+        input/=<span class="hljs-number">10</span>;
+        arm+=tmp;
+    }
+    <span class="hljs-keyword">if</span>(arm == cpyinput)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Is Armstrong&quot;</span>);
+    }
+    <span class="hljs-keyword">else</span>
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Not Armstrong&quot;</span>);
+    }
+}
+</div></code></pre>
+<h4 id="-bin3o"><code>$ bin/3.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>123</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>Not Armstrong</p>
+</blockquote>
+</blockquote>
+<h4 id="4write-a-c-program-to-find-largest-of-given-three-numbers">4.	Write a C Program to find largest of given three numbers.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+   <span class="hljs-keyword">int</span> input1 , input2 , input3;
+   <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span> , &amp;input1 , &amp;input2 , &amp;input3);
+   <span class="hljs-keyword">if</span>(input1 &lt; input2)
+   {
+       <span class="hljs-keyword">if</span>(input2 &lt; input3)
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n%d&quot;</span> , input3);
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n%d&quot;</span> , input2);
+   }
+   <span class="hljs-keyword">else</span>
+   {
+       <span class="hljs-keyword">if</span>(input1 &lt; input3)
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n%d&quot;</span> , input3);
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n%d&quot;</span> , input1);
+   }
+}
+</div></code></pre>
+<h4 id="-bin4o"><code>$ bin/4.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>120<br>
+6<br>
+154</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>154</p>
+</blockquote>
+</blockquote>
+<h4 id="5write-a-c-program-to-print-fibonacci-sequence-up-to-a-certain-number-input-by-you">5.	Write a C program to print Fibonacci Sequence up to a certain number input by you.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> term1 = <span class="hljs-number">0</span>, term2 = <span class="hljs-number">1</span> , term3 = term1+term2, input;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , &amp;input);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n%d\n%d&quot;</span> , term1 , term2);
+    <span class="hljs-keyword">while</span>(term3 &lt;= input)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n%d&quot;</span> , term3);
+        term1 = term2;
+        term2 = term3;
+        term3 = term1 + term2;
+    }
+}
+</div></code></pre>
+<h4 id="-bin5o"><code>$ bin/5.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>10</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>0<br>
+1<br>
+1<br>
+2<br>
+3<br>
+5<br>
+8</p>
+</blockquote>
+</blockquote>
+
+    </body>
+    </html>

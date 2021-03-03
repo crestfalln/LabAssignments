@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>1&period;&Tab;Ramesh&apos;s basic salary is input through the keyboard&period; His dearness allowance is 40&percnt; of basic salary&comma; and house rent allowance is 20&percnt; of basic salary&period; Write a C Program to calculate gross salary&period;</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <hr>
+<h2 id="title-lab-assignment-1author-himanshu-guptapagestyle-emptygeometry-margin1cm">title: Lab Assignment 1
+author: Himanshu Gupta
+pagestyle: empty
+geometry: margin=1cm</h2>
+<h4 id="1rameshs-basic-salary-is-input-through-the-keyboard-his-dearness-allowance-is-40-of-basic-salary-and-house-rent-allowance-is-20-of-basic-salary-write-a-c-program-to-calculate-gross-salary">1.	Ramesh's basic salary is input through the keyboard. His dearness allowance is 40% of basic salary, and house rent allowance is 20% of basic salary. Write a C Program to calculate gross salary.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">float</span> grossSalary, rent = <span class="hljs-number">20</span>, baseSalary, dearness = <span class="hljs-number">40</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter Base Salary\n&quot;</span>);
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%f&quot;</span>, &amp;baseSalary);
+    grossSalary = baseSalary * (<span class="hljs-number">1.00</span> + (dearness / <span class="hljs-number">100</span>) - (rent / <span class="hljs-number">100</span>));
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;The Gross Salary is: \n%2f&quot;</span>, grossSalary);
+}
+</div></code></pre>
+<h4 id="-bin1o"><code>$ bin/1.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>Enter Base Salary<br>
+100</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>The Gross Salary is:<br>
+120.000000</p>
+</blockquote>
+</blockquote>
+<h4 id="2if-the-marks-obtained-by-a-student-in-five-different-subjects-are-input-through-the-keyboard-find-out-the-aggregate-marks-and-percentage-marks-obtained-by-the-student-assume-that-the-maximum-marks-that-can-be-obtained-by-a-student-in-each-subject-is-100">2.	If the marks obtained by a student in five different subjects are input through the keyboard, find out the aggregate marks and percentage marks obtained by the student. Assume that the maximum marks that can be obtained by a student in each subject is 100.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> aggMarks= <span class="hljs-number">0</span>; 
+    <span class="hljs-keyword">int</span> temp , count = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter Marks of each Subject\n&quot;</span>);
+    <span class="hljs-keyword">while</span> (count != <span class="hljs-number">5</span>)
+    {
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , &amp;temp);
+        aggMarks+=temp;
+        count++;
+    }
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Aggregate marks are: \n%d\nPercent Marks are: \n%0.2f&quot;</span> , aggMarks , count , (<span class="hljs-keyword">float</span>)(aggMarks)*<span class="hljs-number">100</span>/(count*<span class="hljs-number">100</span>));
+}
+</div></code></pre>
+<h4 id="-bin2o"><code>$ bin/2.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>Enter Marks of each Subject<br>
+40<br>
+23<br>
+15<br>
+42<br>
+32</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>Aggregate marks are:<br>
+152<br>
+Percent Marks are:<br>
+30.40%</p>
+</blockquote>
+</blockquote>
+<h4 id="3temperature-of-a-city-in-fahrenheit-degree-is-input-through-the-keyboard-write-a-c-program-to-convert-this-temperature-into-celsius">3.Temperature of a city in Fahrenheit degree is input through the keyboard. Write a C program to convert this temperature into Celsius.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">float</span> inputFaren;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%f&quot;</span>, &amp;inputFaren);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%0.2f&quot;</span>, (inputFaren - <span class="hljs-number">32</span>) * <span class="hljs-number">5</span> / <span class="hljs-number">9</span>);
+}
+</div></code></pre>
+<h4 id="-bin3o"><code>$ bin/3.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>12</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>-11.11</p>
+</blockquote>
+</blockquote>
+<h4 id="4two-numbers-are-input-through-the-keyboard-into-two-variables-a-and-b--write-a-c--program-to-interchange-the-contents-of-a-and-b">4.	Two numbers are input through the keyboard into two variables A and B.  Write a C  program to interchange the contents of A and B.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> a , b , temp;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span> , &amp;a , &amp;b);
+    <span class="hljs-comment">//a = temp ; a = b ; b = temp;                           //Method 1</span>
+    <span class="hljs-comment">//a = a + b; b = a - b; a = a - b;                       //Method 2</span>
+    a = a ^ b; b = a ^ b; a = a ^ b;                         <span class="hljs-comment">//Method 3</span>
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n%d\n%d&quot;</span> , a , b);
+}
+</div></code></pre>
+<h4 id="-bin4o"><code>$ bin/4.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>12<br>
+32</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>32<br>
+12</p>
+</blockquote>
+</blockquote>
+<h4 id="5if-a-five-digit-number-is-input-through-the-keyboard-write-a-c-program-to-calculate-the-sum-of-its-digits">5.	If a five digit number is input through the keyboard, write a C program to calculate the sum of its digits.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> num = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;num);
+    <span class="hljs-keyword">while</span> (num != <span class="hljs-number">0</span>)
+    {
+        sum += num % <span class="hljs-number">10</span>;
+        num /= <span class="hljs-number">10</span>;
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n%d&quot;</span>, sum);
+}
+</div></code></pre>
+<h4 id="-bin5o"><code>$ bin/5.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>12345<br>
+<strong>Output:</strong><br>
+15</p>
+</blockquote>
+</blockquote>
+
+    </body>
+    </html>
