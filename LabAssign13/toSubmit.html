@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&lsqb;&lt;span style&equals;&quot;color&colon;blue&quot;&gt;Pull with Git&quest;&lt;&sol;span&gt;&rsqb;&lpar;https&colon;&sol;&sol;github&period;com&sol;crestfalln&sol;LabAssignments&period;git&rpar;</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <hr>
+<p>title: Lab Assignment 13
+author: Himanshu Gupta
+pagestyle: empty
+geometry: margin=1cm</p>
+<hr>
+<h2 id="pull-with-git"><a href="https://github.com/crestfalln/LabAssignments.git"><span style="color:blue">Pull with Git?</span></a></h2>
+<h4 id="1-write-a-c-function-to-sort-the-numbers-of-an-array-using-insertion-sort">1. Write a C function to sort the numbers of an array using Insertion sort.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *a, <span class="hljs-keyword">int</span> *b)</span>
+</span>{
+    <span class="hljs-keyword">int</span> temp = *b;
+    *b = *a;
+    *a = temp;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert_sort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *arr, <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> arrSize)</span>
+</span>{
+    <span class="hljs-keyword">int</span> iter = <span class="hljs-number">1</span>, secIter = iter - <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> key;
+    <span class="hljs-keyword">for</span> (iter = <span class="hljs-number">0</span>; iter &lt; arrSize; iter++)
+    {
+        key = arr[iter];
+        <span class="hljs-keyword">for</span> (secIter = iter - <span class="hljs-number">1</span>; secIter &gt;= <span class="hljs-number">0</span>; secIter--)
+        {
+            <span class="hljs-keyword">if</span> (arr[secIter] &gt;= arr[secIter + <span class="hljs-number">1</span>])
+                arr[secIter + <span class="hljs-number">1</span>] = arr[secIter];
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">break</span>;
+        }
+        arr[secIter + <span class="hljs-number">1</span>] = key;
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> inbuffSize = <span class="hljs-number">100</span>; <span class="hljs-comment">//for the input buffer</span>
+    <span class="hljs-keyword">int</span> iter = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> inputArraySize = <span class="hljs-number">5</span>; <span class="hljs-comment">//size of the array to be sorted</span>
+    <span class="hljs-keyword">int</span> inputArray[inputArraySize];
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter Array: \n&quot;</span>);
+    <span class="hljs-keyword">for</span> (iter = <span class="hljs-number">0</span>; iter &lt; inputArraySize; iter++)
+    {
+        <span class="hljs-keyword">char</span> inbuff[inbuffSize];                              <span class="hljs-comment">//tmp buff to store input</span>
+        fgets(inbuff, inbuffSize - <span class="hljs-number">2</span>, <span class="hljs-built_in">stdin</span>);                 <span class="hljs-comment">//taking input in buff</span>
+        inputArray[iter] = strtol(inbuff, (<span class="hljs-keyword">char</span> **)<span class="hljs-literal">NULL</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">//conv. and storing input</span>
+    }
+    <span class="hljs-comment">//array is now ready to be sorted</span>
+    insert_sort(inputArray, inputArraySize);
+    <span class="hljs-comment">//array is now sorted</span>
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Sorted Array: &quot;</span>);
+    <span class="hljs-keyword">for</span> (iter = <span class="hljs-number">0</span>; iter &lt; inputArraySize; iter++)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, inputArray[iter]);
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);
+}
+</div></code></pre>
+<h4 id="-bin1o"><code>$ bin/1.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>Enter Array:
+3<br>
+1<br>
+2<br>
+5<br>
+4</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>Sorted Array: 1 2 3 4 5</p>
+</blockquote>
+</blockquote>
+<h4 id="2-write-a-c-program-to-print-following-fabonacci-series-using-recursive-function">2. Write a C program to print following Fabonacci series using recursive function.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fibonacci</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> *arr)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span> || n == <span class="hljs-number">1</span>)
+        arr[n - <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arr[n - <span class="hljs-number">2</span>] != <span class="hljs-number">0</span> &amp;&amp; arr[n - <span class="hljs-number">3</span>] != <span class="hljs-number">0</span>)
+        arr[n<span class="hljs-number">-1</span>] = arr[n - <span class="hljs-number">2</span>] + arr[n - <span class="hljs-number">3</span>];
+    <span class="hljs-keyword">else</span> 
+        arr[n - <span class="hljs-number">1</span>] = fibonacci(n - <span class="hljs-number">1</span>, arr) + fibonacci(n - <span class="hljs-number">2</span>, arr);
+    <span class="hljs-keyword">return</span> arr[n<span class="hljs-number">-1</span>];
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> toPrintSize = <span class="hljs-number">7</span>;
+    <span class="hljs-keyword">int</span> toPrint[toPrintSize];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; toPrintSize; i++)
+        toPrint[i] = <span class="hljs-number">0</span>;
+    fibonacci(toPrintSize, toPrint);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; toPrintSize; i++)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, toPrint[i]);
+    }
+}
+</div></code></pre>
+<h4 id="-bin2o"><code>$ bin/2.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>None.</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>1 1 2 3 5 8 13</p>
+</blockquote>
+</blockquote>
+<h4 id="3-differentiate-between-unions-and-structures-in-c-with-three-members-of-each-of-type-integer-float-and-character-string">3. Differentiate between Unions and Structures in C with three members of each of type integer, float and character string.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">union</span>
+{
+    <span class="hljs-keyword">int</span> integer;
+    <span class="hljs-keyword">float</span> floatingPoint;
+    <span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">100</span>];
+} Union;
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>
+{</span>
+    <span class="hljs-keyword">int</span> integer;
+    <span class="hljs-keyword">float</span> floatingPoint;
+    <span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">100</span>];
+} Struct;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">input</span><span class="hljs-params">(Struct* S , Union* U)</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> inputbuffSize = <span class="hljs-number">100</span>;
+    <span class="hljs-keyword">char</span> inputbuff[inputbuffSize];
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Input Struct: \n&quot;</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tEnter Integer: &quot;</span>);
+    fgets(inputbuff , inputbuffSize - <span class="hljs-number">2</span>, <span class="hljs-built_in">stdin</span>);
+    S-&gt;integer = strtol(inputbuff , (<span class="hljs-keyword">char</span>**)<span class="hljs-literal">NULL</span> , <span class="hljs-number">10</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tEnter Floating-Point Number: &quot;</span>);
+    fgets(inputbuff , inputbuffSize - <span class="hljs-number">2</span>, <span class="hljs-built_in">stdin</span>);
+    S-&gt;floatingPoint = strtod(inputbuff , (<span class="hljs-keyword">char</span>**)<span class="hljs-literal">NULL</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tEnter String: &quot;</span>);
+    fgets(inputbuff , inputbuffSize - <span class="hljs-number">2</span>, <span class="hljs-built_in">stdin</span>);
+    <span class="hljs-built_in">strcpy</span>(S-&gt;<span class="hljs-built_in">string</span> , inputbuff);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Input Union: \n&quot;</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tEnter Integer: &quot;</span>);
+    fgets(inputbuff , inputbuffSize - <span class="hljs-number">2</span>, <span class="hljs-built_in">stdin</span>);
+    U-&gt;integer = strtol(inputbuff , (<span class="hljs-keyword">char</span>**)<span class="hljs-literal">NULL</span> , <span class="hljs-number">10</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tEnter Floating-Point Number: &quot;</span>);
+    fgets(inputbuff , inputbuffSize - <span class="hljs-number">2</span>, <span class="hljs-built_in">stdin</span>);
+    U-&gt;floatingPoint = strtod(inputbuff , (<span class="hljs-keyword">char</span>**)<span class="hljs-literal">NULL</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tEnter String: &quot;</span>);
+    fgets(inputbuff , inputbuffSize - <span class="hljs-number">2</span>, <span class="hljs-built_in">stdin</span>);
+    <span class="hljs-built_in">strcpy</span>(U-&gt;<span class="hljs-built_in">string</span> , inputbuff);
+    <span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    Struct Struct1;
+    Union Union1;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Struct Stores all the varialbes seprately, while union only store one.\n&quot;</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Size of Struct: %d bytes,\nSize of Union: %d bytes\n&quot;</span> , <span class="hljs-keyword">sizeof</span>(Struct1) , <span class="hljs-keyword">sizeof</span>(Union1));
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Give input: \n&quot;</span>);
+    input(&amp;Struct1 , &amp;Union1);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\nOutput:\n&quot;</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Struct:\n&quot;</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tInteger: %d\n&quot;</span> , Struct1.integer);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tFloating-Point Number: %f\n&quot;</span> , Struct1.floatingPoint);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tString: %s&quot;</span> , Struct1.<span class="hljs-built_in">string</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Union:\n&quot;</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tInteger: %d\n&quot;</span> , Union1.integer);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tFloating-Point Number: %f\n&quot;</span> , Union1.floatingPoint);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\tString: %s&quot;</span> , Union1.<span class="hljs-built_in">string</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<h4 id="-bin3o"><code>$ bin/3.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong><br>
+Give input:
+Input Struct:</p>
+<blockquote>
+<p>Enter Integer: 12<br>
+Enter Floating-Point Number: 13.43<br>
+Enter String: Hello, World</p>
+</blockquote>
+<p>Input Union:</p>
+<blockquote>
+<p>Enter Integer: 12<br>
+Enter Floating-Point Number: 13.43<br>
+Enter String: Hello, World</p>
+</blockquote>
+<p><strong>Output:</strong><br>
+Struct:</p>
+<blockquote>
+<p>Integer: 12<br>
+Floating-Point Number: 13.430000<br>
+String: Hello, World</p>
+</blockquote>
+<p>Union:</p>
+<blockquote>
+<p>Integer: 1819043144<br>
+Floating-Point Number: 1143139122437582505939828736.000000<br>
+String: Hello, World</p>
+</blockquote>
+</blockquote>
+<h4 id="4-write-a-c-program-to-copy-contents-of-one-text-file-to-another-text-file">4. Write a C program to copy contents of one text file to another text file.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-comment">//Buffered</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">copy</span><span class="hljs-params">(FILE *to, FILE *from)</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> buffSize = <span class="hljs-number">1024</span>;
+    <span class="hljs-keyword">char</span>* buffer = (<span class="hljs-keyword">char</span>*)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)*buffSize);
+    <span class="hljs-keyword">char</span> ch;
+    <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> iterations = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)
+    {
+        <span class="hljs-keyword">if</span> (count &gt;= buffSize)
+        {
+            fwrite((<span class="hljs-keyword">void</span> *)buffer, <span class="hljs-number">1024</span>, <span class="hljs-number">1</span>, to);
+            count = <span class="hljs-number">0</span>;
+        }
+        buffer[count] = getc(from);
+        <span class="hljs-keyword">if</span> (buffer[count] == EOF)
+            <span class="hljs-keyword">break</span>;
+        count++;
+    }
+    fwrite((<span class="hljs-keyword">void</span> *)buffer, count, <span class="hljs-number">1</span>, to);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Total %d bytes read and written&quot;</span> , iterations*buffSize+count);
+}
+
+<span class="hljs-comment">//Unbuffered </span>
+<span class="hljs-comment">/*
+int copy(FILE *to, FILE *from)
+{
+    char ch = getc(from);
+    int count = 0;
+    while (ch != EOF)
+    {
+        putc(ch , to);
+        count++;
+        ch = getc(from);
+    }
+    printf(&quot;%d Bytes Written&quot; , count);
+}
+*/</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    FILE *from = fopen(<span class="hljs-string">&quot;quotes_from_stormlight.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>);
+    FILE *to = fopen(<span class="hljs-string">&quot;copy.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>);
+    <span class="hljs-keyword">if</span>(from == (FILE*)<span class="hljs-literal">NULL</span> || to == (FILE*)<span class="hljs-literal">NULL</span>)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Cannot Open File for reading or writing&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    copy(to, from);
+    fclose(to);
+    fclose(from);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+</div></code></pre>
+<h4 id="-bin4o"><code>$ bin/4.o</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>None.</p>
+</blockquote>
+<p><strong>Output:</strong>
+Total 746 bytes read and written</p>
+<blockquote>
+<p><code>$ cat quotes_from_stormlight.txt</code></p>
+<blockquote>
+<p>&quot;Somebody has to start. Somebody has to step forward and do what is right, because it is right. If nobody starts, then others cannot follow.&quot; -Lirin, tWoK, Chapter 3</p>
+<p>&quot;Two blind men waited at the end of an era, contemplating beauty. They sat atop the world's highest cliff, overlooking the land and seeing nothing.&quot; -The Messenger, WoR, Chapter 45</p>
+<p>&quot;And so, does the destination matter? Or is it the path we take? I declare that no accomplishment has substance nearly as great as the road used to achieve it. We are not creatures of destinations. It is the journey that shapes us. Our callused feet, our backs strong from carrying the weight of our travels, our eyes open with the fresh delight of experiences lived.&quot; -Dalinar, tWoK, Chapter 48</p>
+</blockquote>
+<p><code>$ cat copy.txt</code></p>
+<blockquote>
+<p>&quot;Somebody has to start. Somebody has to step forward and do what is right, because it is right. If nobody starts, then others cannot follow.&quot; -Lirin, tWoK, Chapter 3</p>
+<p>&quot;Two blind men waited at the end of an era, contemplating beauty. They sat atop the world's highest cliff, overlooking the land and seeing nothing.&quot; -The Messenger, WoR, Chapter 45</p>
+<p>&quot;And so, does the destination matter? Or is it the path we take? I declare that no accomplishment has substance nearly as great as the road used to achieve it. We are not creatures of destinations. It is the journey that shapes us. Our callused feet, our backs strong from carrying the weight of our travels, our eyes open with the fresh delight of experiences lived.&quot; -Dalinar, tWoK, Chapter 48</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="5-write-a-c-program-to-add-list-of-values-using-command-line-arguments">5. Write a C program to add list of values using command line arguments.</h4>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc , <span class="hljs-keyword">char</span>** argv)</span>
+</span>{
+    <span class="hljs-keyword">int</span> iter = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(iter = <span class="hljs-number">1</span>; iter &lt; argc; iter++)
+    {
+        sum += strtol(argv[iter] , (<span class="hljs-keyword">char</span>**)<span class="hljs-literal">NULL</span> , <span class="hljs-number">10</span>);
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Sum is %d.&quot;</span> , sum);
+}
+</div></code></pre>
+<h4 id="-bin5o-1-2-3-100"><code>$ bin/5.o 1 2 3 100</code></h4>
+<blockquote>
+<p><strong>Input:</strong></p>
+<blockquote>
+<p>None.</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>Sum is 106.</p>
+</blockquote>
+</blockquote>
+
+    </body>
+    </html>
